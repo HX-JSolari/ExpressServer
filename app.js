@@ -6,7 +6,7 @@ var routes = require('./index.js')
 module.exports = app; // esto es solo para testear mas facil
 
 // acuerdense de agregar su router o cualquier middleware que necesiten aca
-app.use(express.json())
+app.use('/', routes.router);
 
 
 

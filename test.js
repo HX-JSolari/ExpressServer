@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-expressions */
 'use strict';
 
-var supertest = require('supertest-as-promised')(require('../app'));
+var supertest = require('supertest-as-promised')(require('./app'));
 var expect = require('chai').expect;
-var { tareas } = require('../routes/index.js')
+var { tareas } = require('./index.js')
 
 
 describe('Testing Repaso M3', function() {
@@ -27,7 +27,7 @@ describe('Testing Repaso M3', function() {
       it('POST agrega una nueva persona al arreglo de tareas y responde con un objeto con la propiedad (encargado) y valor (nombre de la persona)', function(){
         return supertest
           .post('/users')
-            .send({person: 'toni'})
+            .send({person: 'toni'}) // por body
             .expect(201)
             .expect(function(res){
                 expect(tareas).to.have.length(1)
